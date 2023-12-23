@@ -1,21 +1,22 @@
 import styled from '@emotion/styled';
 
-function getRandomHexColor() {
-    return Math.floor(Math.random() * 16777215).toString(16);
-}
-
 export const ProfileBox = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
   margin-top: 40px;
   padding: 10px 20px;
-  background-color: #F8F9EB;
-  box-shadow: 0px 0.8px 2px 0px rgba(0,0,0,0.75);`;
+  background-color: #f8f9eb;
+  box-shadow: 0px 0.8px 2px 0px rgba(0, 0, 0, 0.75);
+`;
 
 export const UserInfoBox = styled.div`
   padding: 5px;
 `;
 
 export const Avatar = styled.img`
-  background-color: #${getRandomHexColor};
+  background-color: #${props => props.theme.colors.getRandomHexColor()};
 `;
 
 export const UserName = styled.p`
@@ -23,31 +24,38 @@ export const UserName = styled.p`
   text-align: center;
   font-size: 24px;
   font-weight: 500;
-  border-bottom: 1px solid rgb(0,0,0,0.5);
+  border-bottom: 2px solid ${props => props.theme.colors.lightGrey};
 `;
 
 export const UserInfo = styled.p`
-text-align: center;
-padding: 4px 2px;
-color: #5C5C5C;
-font-size: 16px;
-`
+  text-align: center;
+  padding: 4px 2px;
+  color: #5c5c5c;
+  font-size: 16px;
+`;
 
 export const StatsList = styled.ul`
-display: flex;
-justify-content: space-around;
-align-items: center;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const StatsItem = styled.li`
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-gap: 5px;
-padding: 5px 15px;
-font-size: 18px;
-&:not(:last-child) {
-    border-right: 1px solid rgb(0,0,0,0.5);
-}
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px 15px;
+  width: 52px;
+
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+`;
+
+export const UserActivity = styled.span`
+  text-transform: capitalize;
+  font-size: 16px;
+  &:nth-of-type(2) {
+    font-weight: 500;
+    font-size: 18px;
+  }
+`;

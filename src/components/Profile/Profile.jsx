@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { avatarSize } from 'constants/index';
+import { sizes } from 'constants/index';
 import {
   ProfileBox,
   UserInfoBox,
@@ -7,14 +7,15 @@ import {
   UserName,
   UserInfo,
   StatsList,
-  StatsItem
+  StatsItem,
+  UserActivity,
 } from './Profile.styled';
 export const Profile = ({ username, tag, location, avatar, stats }) => {
   const statsLabels = Object.keys(stats);
   return (
     <ProfileBox>
       <UserInfoBox>
-        <Avatar src={avatar} alt="User avatar" width={avatarSize.md} />
+        <Avatar src={avatar} alt="User avatar" width={sizes.avatarSize.md} />
         <UserName>{username}</UserName>
         <UserInfo>@{tag}</UserInfo>
         <UserInfo>{location}</UserInfo>
@@ -22,16 +23,16 @@ export const Profile = ({ username, tag, location, avatar, stats }) => {
 
       <StatsList>
         <StatsItem>
-          <span>{statsLabels[0]}</span>
-          <span>{stats.followers}</span>
+          <UserActivity>{statsLabels[0]}</UserActivity>
+          <UserActivity>{stats.followers}</UserActivity>
         </StatsItem>
         <StatsItem>
-          <span>{statsLabels[1]}</span>
-          <span>{stats.views}</span>
+          <UserActivity>{statsLabels[1]}</UserActivity>
+          <UserActivity>{stats.views}</UserActivity>
         </StatsItem>
         <StatsItem>
-          <span>{statsLabels[2]}</span>
-          <span>{stats.likes}</span>
+          <UserActivity>{statsLabels[2]}</UserActivity>
+          <UserActivity>{stats.likes}</UserActivity>
         </StatsItem>
       </StatsList>
     </ProfileBox>
