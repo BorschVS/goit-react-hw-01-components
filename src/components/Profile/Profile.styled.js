@@ -22,14 +22,14 @@ export const Avatar = styled.img`
 export const UserName = styled.p`
   padding: 10px 5px;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   border-bottom: 2px solid ${props => props.theme.colors.lightGrey};
 `;
 
 export const UserInfo = styled.p`
   text-align: center;
-  padding: 4px 2px;
+  padding: 4px;
   color: #5c5c5c;
   font-size: 16px;
 `;
@@ -45,17 +45,19 @@ export const StatsItem = styled.li`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 5px 15px;
+
   width: 52px;
+
+  padding: 6px 16px;
 
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
 `;
 
 export const UserActivity = styled.span`
   text-transform: capitalize;
-  font-size: 16px;
+  font-size: 14px;
   &:nth-of-type(2) {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
   }
 `;

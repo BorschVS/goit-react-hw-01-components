@@ -10,28 +10,45 @@ import {
   StatsItem,
   UserActivity,
 } from './Profile.styled';
+
+import { IconContext } from 'react-icons';
+import { FaTelegramPlane } from 'react-icons/fa';
+import { FaLocationDot } from 'react-icons/fa6';
+
 export const Profile = ({ username, tag, location, avatar, stats }) => {
-  const statsLabels = Object.keys(stats);
   return (
     <ProfileBox>
       <UserInfoBox>
         <Avatar src={avatar} alt="User avatar" width={sizes.avatarSize.md} />
         <UserName>{username}</UserName>
-        <UserInfo>@{tag}</UserInfo>
-        <UserInfo>{location}</UserInfo>
+        <UserInfo>
+          <IconContext.Provider
+            value={{ style: { verticalAlign: 'middle', paddingRight: '4px' } }}
+          >
+            <FaTelegramPlane />@{tag}
+          </IconContext.Provider>
+        </UserInfo>
+        <UserInfo>
+          <IconContext.Provider
+            value={{ style: { verticalAlign: 'top', paddingRight: '4px' } }}
+          >
+            <FaLocationDot />
+          </IconContext.Provider>
+          {location}
+        </UserInfo>
       </UserInfoBox>
 
       <StatsList>
         <StatsItem>
-          <UserActivity>{statsLabels[0]}</UserActivity>
+          <UserActivity>Followers</UserActivity>
           <UserActivity>{stats.followers}</UserActivity>
         </StatsItem>
         <StatsItem>
-          <UserActivity>{statsLabels[1]}</UserActivity>
+          <UserActivity>Views</UserActivity>
           <UserActivity>{stats.views}</UserActivity>
         </StatsItem>
         <StatsItem>
-          <UserActivity>{statsLabels[2]}</UserActivity>
+          <UserActivity>Likes</UserActivity>
           <UserActivity>{stats.likes}</UserActivity>
         </StatsItem>
       </StatsList>

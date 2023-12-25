@@ -17,17 +17,18 @@ export const TransactionsHistory = ({ transactions }) => {
           <TableHeader>Currency</TableHeader>
         </TableRow>
       </TableHead>
-      {transactions.map(({ id, type, amount, currency }) => {
-        return (
-          <TableBody key={id}>
-            <TableRow>
+
+      <TableBody>
+        {transactions.map(({ id, type, amount, currency }) => {
+          return (
+            <TableRow key={id}>
               <TableData>{type}</TableData>
               <TableData>{amount}</TableData>
               <TableData>{currency}</TableData>
             </TableRow>
-          </TableBody>
-        );
-      })}
+          );
+        })}
+      </TableBody>
     </Table>
   );
 };

@@ -20,9 +20,7 @@ export const TableHeader = styled.th`
 
 export const TableBody = styled.tbody`
   background-color: #f9f9f9;
-  &:hover {
-    background-color: #f0f0f0;
-    transition: background-color 300ms ease;
+ 
   }
 `;
 

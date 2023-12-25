@@ -1,12 +1,27 @@
-import { StatisticBox } from './Statistics.styled';
-import { Title } from '../StatsTitle/StatsTitle';
-import { StatisticsList } from '../StatsList/StatsList';
+import { StatsSection } from './Statistics.styled';
+import {
+  StatsTitle,
+  StatsList,
+  StatsListItem,
+  Stats,
+} from './Statistics.styled';
+
+const title = 'Upload stats';
 
 export const Statistics = ({ data }) => {
   return (
-    <StatisticBox>
-      <Title />
-      <StatisticsList data={data} />
-    </StatisticBox>
+    <StatsSection>
+      {title && <StatsTitle>{title}</StatsTitle>}
+      <StatsList>
+        {data.map(({ id, label, percentage }) => {
+          return (
+            <StatsListItem key={id}>
+              <Stats>{label}</Stats>
+              <Stats>{percentage}%</Stats>
+            </StatsListItem>
+          );
+        })}
+      </StatsList>
+    </StatsSection>
   );
 };
