@@ -6,7 +6,16 @@ import { FriendListItem } from '../FriendListItem/FriendListItem';
 export const FriendList = ({ friends }) => {
   return (
     <FriendsBox>
-      <FriendListItem friends={friends} />
+      {friends.map(({ id, isOnline, avatar, name }) => {
+        return (
+          <FriendListItem
+            key={id}
+            name={name}
+            avatar={avatar}
+            status={isOnline}
+          />
+        );
+      })}
     </FriendsBox>
   );
 };
@@ -15,8 +24,8 @@ FriendList.propTypes = {
   friends: PropTypes.arrayOf(
     PropTypes.exact({
       id: PropTypes.number.isRequired,
-      avatar: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired,
       isOnline: PropTypes.bool.isRequired,
     })
   ),
